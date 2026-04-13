@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Riddle Game</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* hide radios */
+input {
+  display: none;
+}
+
+.box {
+  background: white;
+  width: 360px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* hide all stages */
+.stage {
+  display: none;
+}
+
+/* show correct stage */
+#q1:checked ~ .s1,
+#q2:checked ~ .s2,
+#q3:checked ~ .s3 {
+  display: block;
+}
+
+/* question style */
+.riddle {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* answer buttons */
+label.option {
+  display: block;
+  margin: 8px auto;
+  padding: 10px;
+  background: #222;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* correct/wrong messages hidden */
+.result {
+  display: none;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* show correct answer feedback */
+#c1:checked ~ .feedback1 .correct,
+#c2:checked ~ .feedback2 .correct,
+#c3:checked ~ .feedback3 .correct {
+  display: block;
+  color: green;
+}
+
+/* show wrong answers */
+#i1a:checked ~ .feedback1 .wrong,
+#i1b:checked ~ .feedback1 .wrong,
+#i2a:checked ~ .feedback2 .wrong,
+#i2b:checked ~ .feedback2 .wrong,
+#i3a:checked ~ .feedback3 .wrong,
+#i3b:checked ~ .feedback3 .wrong {
+  display: block;
+  color: red;
+}
+
+/* next button */
+.next {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px;
+  background: green;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+
+<!-- GAME STATE -->
+<input type="radio" name="q" id="q1" checked>
+<input type="radio" name="q" id="q2">
+<input type="radio" name="q" id="q3">
+
+<!-- QUESTION 1 -->
+<div class="stage s1">
+
+  <div class="riddle">
+    I speak without a mouth and hear without ears. What am I?
+  </div>
+
+  <!-- answers -->
+  <input type="radio" name="a1" id="c1">
+  <input type="radio" name="a1" id="i1a">
+  <input type="radio" name="a1" id="i1b">
+
+  <label class="option" for="i1a">Wind</label>
+  <label class="option" for="i1b">Shadow</label>
+  <label class="option" for="c1">An Echo</label>
+
+  <div class="feedback1">
+    <div class="result correct">✅ Correct!</div>
+    <div class="result wrong">❌ Try again!</div>
+  </div>
+
+  <label class="next" for="q2">Next ➜</label>
+</div>
+
+<!-- QUESTION 2 -->
+<div class="stage s2">
+
+  <div class="riddle">
+    The more you take, the more you leave behind. What are they?
+  </div>
+
+  <input type="radio" name="a2" id="c2">
+  <input type="radio" name="a2" id="i2a">
+  <input type="radio" name="a2" id="i2b">
+
+  <label class="option" for="i2a">Memories</label>
+  <label class="option" for="c2">Footsteps</label>
+  <label class="option" for="i2b">Time</label>
+
+  <div class="feedback2">
+    <div class="result correct">✅ Correct!</div>
+    <div class="result wrong">❌ Try again!</div>
+  </div>
+
+  <label class="next" for="q3">Next ➜</label>
+</div>
+
+<!-- QUESTION 3 -->
+<div class="stage s3">
+
+  <div class="riddle">
+    What has hands but can’t clap?
+  </div>
+
+  <input type="radio" name="a3" id="c3">
+  <input type="radio" name="a3" id="i3a">
+  <input type="radio" name="a3" id="i3b">
+
+  <label class="option" for="i3a">Robot</label>
+  <label class="option" for="c3">A Clock</label>
+  <label class="option" for="i3b">Tree</label>
+
+  <div class="feedback3">
+    <div class="result correct">✅ Correct!</div>
+    <div class="result wrong">❌ Try again!</div>
+  </div>
+
+  <label class="next" for="q1">Restart 🔁</label>
+</div>
+
+</div>
+
+</body>
+</html>
